@@ -1,0 +1,10 @@
+Customer Onboarding
+
+Bavaria Telecom (BT) is a major telecom operator in Germany. They have decided to move away from their legacy CRM system to Salesforce Sales Cloud. As part of the first release, they want to have the existing Customer Accounts & Contacts from the legacy CRM present in Sales Cloud. They also want the ability to onboard new Accounts & Contacts. The BT business users have asked for an easy to use, step-by-step method using which a call centre agent can create an Account. Some things to keep in mind:
+1)	Contact creation is mandatory during Account Creation.
+2)	Accounts can be either B2B or B2C. There may be slight variation in process depending on what kind of account is being created.
+3)	Always enforce some ID verification during the creation process. 16 digit numeric id for individuals & 8 digit alpha numeric id for companies.
+4)	Ensure that duplicate Accounts or Contacts do not get created.
+Every weekend, a job should run that will pick newly created accounts and export it to an excel sheet and emailed to the project manager.
+
+Note to project managers: Please ensure that any APEX code created has an overall test class code coverage of over 90%.
