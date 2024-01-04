@@ -1,0 +1,100 @@
+<template>
+    <div class="slds-card__body slds-card__body_inner">
+        <lightning-card title="Account and Related Contact Details">
+            <lightning-input type="text" onchange={handleChange} label="Enter Account Name:"></lightning-input>
+            <lightning-button type="Submit" onclick={handleClick} label="Search Account"></lightning-button>
+            <template if:true={accounts} >
+            
+            <template if:true={handleType}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <tr class="row0">
+                    <th>Name</th>
+                    <th>Company ID</th>
+                    <th>Email</th>
+                    <th>Industry</th>
+                    <th>Type</th>
+                    <th>Phone</th>
+                </tr>
+                    <template for:each={accounts} for:item="acc">
+                        <tr key={acc.Id}>
+                            <td>{acc.Name}</td>
+                            <td>{acc.Company_ID__c}</td>
+                            <td>{acc.Email__c}</td>
+                            <td>{acc.Industry}</td>
+                            <td>{acc.Type}</td>
+                            <td>{acc.Phone}</td>
+                        </tr>
+                    </template>
+                </table>
+                <lightning-card title="Related Contacts">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <tr class="row0">
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Company ID</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>Account Name</th>
+                    </tr>
+                    <template for:each={contacts} for:item="con">
+                        <tr key={con.Id}>
+                            <td>{con.FirstName}</td>
+                            <td>{con.LastName}</td>
+                            <td>{con.Company_ID__c}</td>
+                            <td>{con.Email}</td>
+                            <td>{con.MobilePhone}</td>
+                            <td>{con.Account.Name}</td>
+                        </tr>
+                    </template>
+                </table>
+                </lightning-card>
+            </template>
+            <template if:false={handleType}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <tr class="row0">
+                    <th>Name</th>
+                    <th>Individual ID</th>
+                    <th>Email</th>
+                    <th>Industry</th>
+                    <th>Type</th>
+                    <th>Phone</th>
+                </tr>
+            
+                    <template for:each={accounts} for:item="acc">
+                        <tr key={acc.Id}>
+                            <td>{acc.Name}</td>
+                            <td>{acc.Individual_ID__c}</td>
+                            <td>{acc.Email__c}</td>
+                            <td>{acc.Industry}</td>
+                            <td>{acc.Type}</td>
+                            <td>{acc.Phone}</td>
+                        </tr>
+                    </template>
+                </table>
+                <lightning-card title="Related Contacts">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-labelledby="element-with-table-label other-element-with-table-label">
+                    <tr class="row0">
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Individual ID</th>
+                        <th>Email</th>
+                        <th>Contact Number</th>
+                        <th>Account Name</th>
+                    </tr>
+                    <template for:each={contacts} for:item="con">
+                        <tr key={con.Id}>
+                            <td>{con.FirstName}</td>
+                            <td>{con.LastName}</td>
+                            <td>{con.Individual_ID__c}</td>
+                            <td>{con.Email}</td>
+                            <td>{con.MobilePhone}</td>
+                            <td>{con.Account.Name}</td>
+                        </tr>
+                    </template>
+                </table>
+                </lightning-card>
+            </template>
+        </template>
+        </lightning-card>
+    </div>
+</template>
